@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Remove_an_element_from_given_array {
+	public static int[] remove_ele(int arr[],int ele) {
+		int cnt=0;
+		for(int num:arr) {
+			if(num==ele) {
+				cnt++;
+			}
+		}
+		int ans[]=new int[arr.length-cnt];
+		int ind=0;
+		for(int num:arr) {
+			if(num==ele) {
+				continue;
+			}
+			ans[ind++]=num;
+		}
+		return ans;
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.print("Enter the size of the array: ");
+		int size=s.nextInt();
+		System.out.println("Enter the elements of the array:");
+		int arr[]=new int[size];
+		for(int i=0;i<size;i++) {
+			arr[i]=s.nextInt();
+		}
+		System.out.print("Enter the element to remove: ");
+		int ele=s.nextInt();
+		int modification[]=remove_ele(arr,ele);
+		System.out.println("Array after removing "+ele+":");
+		for(int i=0;i<modification.length;i++ ) {
+			System.out.print(modification[i]+" ");
+		}
+
+	}
+
+}
